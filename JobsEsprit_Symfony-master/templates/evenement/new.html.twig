@@ -1,0 +1,83 @@
+{% block title %}New Evenement{% endblock %}
+
+{% block body %}
+    <style>
+        body {
+            background-color: #f0f7ff;
+            color: #004080;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #005cbf;
+        }
+
+        a {
+            color: #005cbf;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .create-form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .create-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #005cbf;
+        }
+
+        .create-form input, .create-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .create-form button {
+            background-color: #005cbf;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .create-form button:hover {
+            background-color: #004080;
+        }
+
+        .back-to-list {
+            display: block;
+            margin-top: 20px;
+            color: #005cbf;
+            text-decoration: none;
+        }
+
+        .back-to-list:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <h1>Create new Evenement</h1>
+
+    <div class="create-form">
+        {{ include('evenement/_form.html.twig') }}
+    </div>
+
+    <a href="{{ path('app_evenement_index') }}" class="back-to-list">Back to list</a>
+{% endblock %}

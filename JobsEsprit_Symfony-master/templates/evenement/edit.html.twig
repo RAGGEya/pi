@@ -1,0 +1,104 @@
+{% block title %}Edit Evenement{% endblock %}
+
+{% block body %}
+    <style>
+        body {
+            background-color: #f0f7ff;
+            color: #004080;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #005cbf;
+        }
+
+        a {
+            color: #005cbf;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .update-form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .update-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #005cbf;
+        }
+
+        .update-form input, .update-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .update-form button {
+            background-color: #005cbf;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .update-form button:hover {
+            background-color: #004080;
+        }
+
+        .back-to-list {
+            display: block;
+            margin-top: 20px;
+            color: #005cbf;
+            text-decoration: none;
+        }
+
+        .back-to-list:hover {
+            text-decoration: underline;
+        }
+
+        .delete-form {
+            margin-top: 20px;
+        }
+
+        .delete-form button {
+            background-color: #ff3547;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-form button:hover {
+            background-color: #cc2b3e;
+        }
+    </style>
+
+    <h1>Edit Evenement</h1>
+
+    <div class="update-form">
+        {{ include('evenement/_form.html.twig', {'button_label': 'Update'}) }}
+    </div>
+
+    <a href="{{ path('app_evenement_index') }}" class="back-to-list">Back to list</a>
+
+    <div class="delete-form">
+        {{ include('evenement/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

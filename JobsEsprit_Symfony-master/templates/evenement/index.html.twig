@@ -1,0 +1,109 @@
+{% block title %}Evenements{% endblock %}
+
+{% block body %}
+    <style>
+        body {
+            background-color: #f0f7ff;
+            color: #004080;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #005cbf;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #005cbf;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #cce5ff;
+        }
+
+        a {
+            color: #005cbf;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .no-records {
+            font-style: italic;
+            color: #888;
+        }
+
+        a.create-new {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #005cbf;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a.create-new:hover {
+            background-color: #004080;
+        }
+    </style>
+
+    <h1>Evenements</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Heure</th>
+                <th>Date</th>
+                <th>Lieu</th>
+                <th>Payant</th>
+                <th>NombreDePlaces</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+            <tr>
+                <td>{{ evenement.id }}</td>
+                <td>{{ evenement.description }}</td>
+                <td>{{ evenement.type }}</td>
+                <td>{{ evenement.heure }}</td>
+                <td>{{ evenement.date }}</td>
+                <td>{{ evenement.lieu }}</td>
+                <td>{{ evenement.payant }}</td>
+                <td>{{ evenement.nombreDePlaces }}</td>
+                <td>
+                    <a href="{{ path('app_evenement_show', {'id': evenement.id}) }}">Show</a>
+                    <a href="{{ path('app_evenement_edit', {'id': evenement.id}) }}">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9" class="no-records">No records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_evenement_new') }}" class="create-new">Create new</a>
+{% endblock %}
